@@ -7,8 +7,20 @@ class Solution {
         return findGCD(b, a % b);
     }
     public int findGCD(int[] nums) {
-        int n = nums.length;
-        Arrays.sort(nums);
-        return findGCD(nums[0],nums[n-1]);
+        int min = nums[0];
+        int max = nums[0];
+
+        
+        for (int i = 0; i < nums.length; i++) {
+
+            if (nums[i] < min) {
+                min = nums[i];
+            }
+
+            if (nums[i] > max) {
+                max = nums[i];
+            }
+        }
+        return findGCD(max,min);
     }
 }
